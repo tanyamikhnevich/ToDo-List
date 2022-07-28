@@ -83,8 +83,7 @@ type PropsType = {
   hidden: boolean;
 };
 
-//const Post = (props: PropsType) => {}
-
+// вынести в отдульную папку
 const Post: React.FC<PropsType> = (props) => {
   return (
     <div hidden={props.hidden} className={styles.itemsContainer}>
@@ -95,6 +94,7 @@ const Post: React.FC<PropsType> = (props) => {
 };
 
 const ContainerOfItems = () => {
+
   const [visibleData, setVisibleData] = useState(6);
 
   let postElements = store
@@ -111,8 +111,8 @@ const ContainerOfItems = () => {
     setVisibleData(6);
   };
 
-  // если мы дошли до конца (все отображено), вместо Уще будет Закрыть, при нажатии на Закрыть будет все заново
-
+  // вынести условие
+  // background => container
   return (
     <section className={styles.background}>
       {postElements}

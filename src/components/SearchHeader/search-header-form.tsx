@@ -1,10 +1,15 @@
 import styles from "./SearchHeaderForm.module.css";
+import ChoiceItemsArea from "../ChoiseItemsArea/ChoiseItemsArea";
+
+
+// backgroundArea => background
+// убрать form из названий файлов
+
 
 const SearchHeader = () => {
-  // container
-  // title
 
-  // h p section
+  const isTablet = window.matchMedia("(max-width: 1279px)").matches
+
   return (
     <section className={styles.backgroundArea}>
       <div className={styles.inputContainer}>
@@ -17,6 +22,7 @@ const SearchHeader = () => {
         Есть вопрос, на который не нашли ответ? Просто напишите нам, и мы
         свяжемся с вами
       </p>
+      {isTablet && <ChoiceItemsArea />}
       <button className={styles.buttonContactWithUs}>Связаться с нами</button>
     </section>
   );
