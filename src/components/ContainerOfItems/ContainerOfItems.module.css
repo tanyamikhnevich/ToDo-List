@@ -1,0 +1,78 @@
+.background {
+    display: flex;
+    justify-content: space-between;
+    flex-flow: wrap;
+    flex-direction: row;
+    align-items: stretch;
+}
+
+.image {
+    height: 300px;
+    width: 100%;
+    object-fit: cover;
+}
+
+.itemsContainer {
+    width: 32%;
+    margin-bottom: 12px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    border-radius: 24px;
+}
+
+.itemsContainer[hidden] {
+    width: 32%;
+    margin-bottom: 12px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    border-radius: 24px;
+}
+
+.description {
+    font-family: 'Ubuntu', sans-serif;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 130%;
+    color: #FFFFFF;
+    background-color: #7E51FF;
+    padding: 25px 40px;
+    height: 100%;
+}
+
+.endButton {
+    background: #AABBFF;
+    border-radius: 32px;
+    font-family: 'Ubuntu', sans-serif;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 28px;
+    text-align: center;
+    color: #7E51FF;
+    padding: 10px 130px;
+    border: none;
+    margin: 0 auto;
+}
+
+@media screen and (max-width: 1279px) {
+    .itemsContainer {
+        width: 48%;
+    }
+
+    .itemsContainer[hidden] {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 999px) {
+    .background {
+        margin: 230px auto 0 auto;
+    }
+    .itemsContainer {
+        width: 48%;
+    }
+    .endButton {
+        padding: 10px 24px;
+    }
+}

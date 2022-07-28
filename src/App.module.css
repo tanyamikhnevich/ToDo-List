@@ -1,0 +1,24 @@
+
+
+.background {
+    /*text-align: center;*/
+    background: #E5E5E5;
+    /*width: 1440px;*/
+}
+
+.container {
+    margin: 0 auto;
+    width: 1280px;
+}
+
+@media screen and (max-width: 1279px) {
+    .container {
+        width: 880px
+    }
+}
+
+@media screen and (max-width: 999px) {
+    .container {
+        width: 704px;
+    }
+}
