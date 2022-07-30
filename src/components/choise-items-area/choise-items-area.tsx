@@ -1,7 +1,7 @@
 import styles from "./choise-items-area.module.css";
 import React, { useState } from "react";
 import classNames from "classnames";
-import Item from "../container-of-items/Item";
+import Item from "../container-of-items/item/Item";
 
 interface StoreItemI {
   id: number;
@@ -24,14 +24,14 @@ const store: StoreItemI[] = [
   { id: 13, itemMessage: "Локдаун 13" },
 ];
 
-// background => container ++
-// При клике на кнопку еще будут показываться внизу все элементы, название кнопки меняется на Скрыть
-
 const ChoiceItemsArea = () => {
-  let number = 6;
-  const isMiniTablet = !window.matchMedia("(min-width: 999px)").matches;
+  // let number = 6;
+  const isDesktop = !window.matchMedia("(max-width: 999px)").matches;
 
-  {isMiniTablet? (number = store.length): (number = 6)}
+  // {
+  //   isMiniTablet ? (number = store.length) : (number = 6);
+  // }
+  const number = isDesktop ? 6 : store.length;
 
   const [visible, setVisible] = useState(number);
 
@@ -40,6 +40,7 @@ const ChoiceItemsArea = () => {
     .map((p) => <Item key={p.id} itemMessage={p.itemMessage} />);
 
   const toggleVisible = () => {
+    console.log(store.length);
     setVisible(store.length);
   };
 
@@ -47,27 +48,41 @@ const ChoiceItemsArea = () => {
     setVisible(number);
   };
 
-  const condition = !(visible === store.length);
+  const isOpened = visible === store.length;
+
+  // return (
+  //   <section className={styles.container}>
+  //     {itemElements}
+  //     {isMiniTablet ? (
+  //       <></>
+  //     ) : condition ? (
+  //       <button
+  //         onClick={toggleVisible}
+  //         className={classNames(styles.buttonEnd, styles.buttonGeneral)}
+  //       >
+  //         Ещe
+  //       </button>
+  //     ) : (
+  //       <button
+  //         onClick={toggleUnVisible}
+  //         className={classNames(styles.buttonEnd, styles.buttonGeneral)}
+  //       >
+  //         Скрыть
+  //       </button>
+  //     )}
+  //   </section>
+  // );
 
   return (
     <section className={styles.container}>
       {itemElements}
-      {isMiniTablet? (<></>) : (
-          condition ? (
-                <button
-                    onClick={toggleVisible}
-                    className={classNames(styles.buttonEnd, styles.buttonGeneral)}
-                >
-                  Ещe
-                </button>
-            ) : (
-                <button
-                    onClick={toggleUnVisible}
-                    className={classNames(styles.buttonEnd, styles.buttonGeneral)}
-                >
-                  Скрыть
-                </button>
-            )
+      {isDesktop && (
+        <button
+          onClick={isOpened ? toggleUnVisible : toggleVisible}
+          className={classNames(styles.buttonEnd, styles.buttonGeneral)}
+        >
+          {isOpened ? "Скрыть" : "Ещe"}
+        </button>
       )}
     </section>
   );

@@ -4,7 +4,6 @@
     flex-flow: wrap;
     flex-direction: row;
     align-items: stretch;
-
 }
 
 .image {
@@ -55,6 +54,7 @@
     .itemsContainer {
         width: 48%;
     }
+
     .endButton {
         padding: 10px 24px;
         margin: 8px auto;

@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "./container-of-items.module.css";
+import styles from "../container-of-items.module.css";
 
 type PropsType = {
     info: string;

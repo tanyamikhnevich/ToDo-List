@@ -1,4 +1,4 @@
-import styles from "./search-header.module.css";
+import styles from "./search-header.module.scss";
 
 const ContactWithUs = () => {
     return <section className={styles.containerContact}>

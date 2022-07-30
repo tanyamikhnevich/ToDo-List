@@ -12,7 +12,7 @@
 /*    font-weight: 400;*/
 /*}*/
 
-.buttonGeneral{
+.buttonGeneral {
     font-size: 16px;
     line-height: 18px;
     text-align: center;
@@ -22,7 +22,6 @@
     margin-right: 13px;
     margin-bottom: 13px;
 
-
 }
 
 .button {
@@ -30,7 +29,6 @@
 }
 
 .buttonEnd {
-    /*font-family: 'Ubuntu', sans-serif;*/
     background: #7E51FF;
     color: white;
 }
@@ -40,7 +38,8 @@
         flex-wrap: wrap;
         margin-bottom: 0;
     }
-    .buttonGeneral{
+
+    .buttonGeneral {
         font-size: 14px;
         line-height: 16px;
         border: 1px solid #FFFFFF;
@@ -48,6 +47,7 @@
         margin: 5px;
 
     }
+
     .button {
         color: #FFFFFF;
     }
