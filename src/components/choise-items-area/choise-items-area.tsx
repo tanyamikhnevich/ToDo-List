@@ -1,7 +1,7 @@
 import styles from "./choise-items-area.module.css";
 import React, { useState } from "react";
 import classNames from "classnames";
-import Item from "../container-of-items/item/Item";
+import Item from "./item/Item";
 import { store as storeMeow } from "../../store/data";
 
 const store = storeMeow;
@@ -25,9 +25,9 @@ const ChoiceItemsArea = () => {
 
   const store1 = removeDuplicates();
 
-  let itemElements = store1
-    .slice(0, visible)
-    .map((tag) => <Item key={tag} tag={tag} />);
+  // let itemElements = store1
+  //   .slice(0, visible)
+  //   .map((tag) => <Item key={tag} tag={tag} />);
 
   const toggleVisible = () => {
     setVisible(store1.length);
@@ -41,7 +41,9 @@ const ChoiceItemsArea = () => {
 
   return (
     <section className={styles.container}>
-      {itemElements}
+      {store1.slice(0, visible).map((tag) => (
+        <Item key={tag} tag={tag} />
+      ))}
       {isDesktop && (
         <button
           onClick={isOpened ? toggleUnVisible : toggleVisible}

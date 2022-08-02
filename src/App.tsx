@@ -4,7 +4,7 @@ import SearchHeader from "./components/search-header/search-header";
 import ChoiceItemsArea from "./components/choise-items-area/choise-items-area";
 import ContainerOfItems from "./components/container-of-items/container-of-items";
 import ContactWithUs from "./components/search-header/contact-with-us";
-import {BrowserRouter, Routes} from "react-router-dom";
+import { BrowserRouter, Routes } from "react-router-dom";
 
 // убрать border у Показать теги +
 // курсор на кнопках +
@@ -23,6 +23,15 @@ import {BrowserRouter, Routes} from "react-router-dom";
 // console.log(query.tag)
 //<NavLink a={'/?tag=Пук'}></NavLink>
 
+// Переделать в Post нормально типы
+// все map на логичные имена
+// ChoiceItemsArea => Filter
+// ContainerOfItems => Posts
+// className без повторений
+// убрать button и сделать везде Navlink
+// Вынести searchParams на уровень выше и передавать isActive
+
+
 function App() {
   const isTablet = window.matchMedia("(max-width: 1279px)").matches;
   const isMiniTablet = window.matchMedia("(max-width: 999px)").matches;
@@ -32,7 +41,7 @@ function App() {
       <div className={styles.container}>
         <SearchHeader />
         {/*<ConnectWithUs/>*/}
-        {!isTablet && <ChoiceItemsArea/>}
+        {!isTablet && <ChoiceItemsArea />}
         {isMiniTablet && <ContactWithUs />}
         <ContainerOfItems />
       </div>
