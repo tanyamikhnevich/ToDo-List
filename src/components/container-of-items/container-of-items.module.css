@@ -1,3 +1,9 @@
+.backgroundContainer {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+}
+
 .container {
     display: flex;
     justify-content: space-between;
@@ -39,9 +45,11 @@
     line-height: 28px;
     text-align: center;
     color: #7E51FF;
-    padding: 10px 130px;
+    padding: 10px 0;
     border: none;
-    margin: 32px auto;
+    cursor: pointer;
+    width: 25%;
+    margin: 0 auto;
 }
 
 @media screen and (max-width: 1279px) {
@@ -53,11 +61,6 @@
 @media screen and (max-width: 999px) {
     .itemsContainer {
         width: 48%;
-    }
-
-    .endButton {
-        padding: 10px 24px;
-        margin: 8px auto;
     }
 }
 

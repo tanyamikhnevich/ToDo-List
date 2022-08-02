@@ -14,10 +14,13 @@ const SearchHeader = () => {
 
   const [isVisible, setIsVisible] = useState(false);
 
+
   return (
     <section className={styles.background}>
       <div className={styles.container}>
-        <input className={styles.input} placeholder="Поиск по Релопедии" />
+        <div className={styles.inputContainer}>
+          <input className={styles.input} placeholder="Поиск по Релопедии" />
+        </div>
         {justTablet && <ChoiceItemsArea />}
         {isMobile && isVisible && <ChoiceItemsArea />}
         <button

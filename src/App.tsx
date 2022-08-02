@@ -4,11 +4,12 @@ import SearchHeader from "./components/search-header/search-header";
 import ChoiceItemsArea from "./components/choise-items-area/choise-items-area";
 import ContainerOfItems from "./components/container-of-items/container-of-items";
 import ContactWithUs from "./components/search-header/contact-with-us";
+import {BrowserRouter, Routes} from "react-router-dom";
 
-// убрать border у Показать теги
-// курсор на кнопках
-// В SearchHeader исправить width на проценты
-// В input search переделать лупу залупу с помощью before
+// убрать border у Показать теги +
+// курсор на кнопках +
+// В SearchHeader исправить width на проценты +
+// В input search переделать лупу залупу с помощью before !!!width не работает нормально
 // itemMessage => message
 // прееименовать condition в ContainerOfItems и убрать ? :
 
@@ -31,7 +32,7 @@ function App() {
       <div className={styles.container}>
         <SearchHeader />
         {/*<ConnectWithUs/>*/}
-        {!isTablet && <ChoiceItemsArea />}
+        {!isTablet && <ChoiceItemsArea/>}
         {isMiniTablet && <ContactWithUs />}
         <ContainerOfItems />
       </div>

@@ -1,11 +1,15 @@
 import styles from "./container-of-items.module.css";
-import React, { useState } from "react";
+import React, {useEffect, useState} from "react";
 import Post from "./post/post";
 import { store as storeMeow } from "../../store/data";
+import { useSearchParams } from "react-router-dom";
 
 const store = storeMeow;
 
 const ContainerOfItems = () => {
+  const [searchParams, ] = useSearchParams();
+  const tagQuery = searchParams.get('tag') || '';
+
   const isTablet = window.matchMedia("(max-width: 1279px)").matches;
   const isMobile = window.matchMedia("(max-width: 767px)").matches;
 
@@ -16,8 +20,12 @@ const ContainerOfItems = () => {
   const [visibleData, setVisibleData] = useState(number);
 
   let postElements = store
+      .filter(el => (tagQuery==='')? true: el.tag===tagQuery)
     .slice(visibleData - number, visibleData)
     .map((p) => <Post key={p.id} info={p.info} image={p.image} />);
+
+
+  let lengthStore = store.filter(el => (tagQuery==='')? true: el.tag===tagQuery).length;
 
   const toggleVisibleData = () => {
     setVisibleData((visible) => visible + Math.floor(number / 2));
@@ -27,20 +35,21 @@ const ContainerOfItems = () => {
     setVisibleData(number);
   };
 
-  const condition = !(visibleData === store.length);
+  useEffect( () => {
+    toggleUnVisible()
+  }, [searchParams])
+
+  const isAllVisible = visibleData >= lengthStore;
 
   return (
-    <section className={styles.container}>
-      {postElements}
-      {condition ? (
-        <button onClick={toggleVisibleData} className={styles.endButton}>
-          Ещё
-        </button>
-      ) : (
-        <button onClick={toggleUnVisible} className={styles.endButton}>
-          Закрыть
-        </button>
-      )}
+    <section className={styles.backgroundContainer}>
+      <div className={styles.container}>{postElements}</div>
+      <button
+        onClick={!isAllVisible ? toggleVisibleData : toggleUnVisible}
+        className={styles.endButton}
+      >
+        {!isAllVisible ? "Ещё" : "Закрыть"}
+      </button>
     </section>
   );
 };
