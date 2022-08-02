@@ -31,10 +31,10 @@ import { BrowserRouter, Routes } from "react-router-dom";
 // убрать button и сделать везде Navlink
 // Вынести searchParams на уровень выше и передавать isActive
 
-
 function App() {
   const isTablet = window.matchMedia("(max-width: 1279px)").matches;
   const isMiniTablet = window.matchMedia("(max-width: 999px)").matches;
+  console.log("meow");
 
   return (
     <div className={styles.background}>
