@@ -5,7 +5,8 @@ import { NavLink } from "react-router-dom";
 
 interface StoreTagI {
   tag: string;
-  tagQuery: string;
+  // tagQuery: string;
+  isActive: boolean;
 }
 
 const Tag = (props: StoreTagI) => {
@@ -14,7 +15,7 @@ const Tag = (props: StoreTagI) => {
       className={classNames(
         styles.button,
         styles.buttonGeneral,
-        props.tagQuery === props.tag && styles.buttonActive
+        props.isActive && styles.buttonActive
       )}
       to={`/?tag=${props.tag}`}
     >
@@ -22,5 +23,7 @@ const Tag = (props: StoreTagI) => {
     </NavLink>
   );
 };
+
+// classNames(styles.general, {[styles.buttonActive]: props.tagQuery === props.tag})
 
 export default Tag;

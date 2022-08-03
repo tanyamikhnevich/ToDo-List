@@ -1,21 +1,19 @@
 import styles from "./posts.module.scss";
 import React, { useEffect, useState } from "react";
 import Post from "./post/post";
-import { store as storeMeow } from "../../store/data";
-import { useSearchParams } from "react-router-dom";
+import { store as storeMeow } from "store/data";
+import { getMediaQuery } from "helpers/helpers";
+import { useTagQuery } from "helpers/use-tag-query";
 
 const store = storeMeow;
 
-const Posts = () => {
-  const [searchParams] = useSearchParams();
-  const tagQuery = searchParams.get("tag") || "";
+export const Posts = () => {
+  const tagQuery = useTagQuery();
 
-  const isTablet = window.matchMedia("(max-width: 1279px)").matches;
-  const isMobile = window.matchMedia("(max-width: 767px)").matches;
+  const isTablet = getMediaQuery(1279);
+  const isMobile = getMediaQuery(767);
 
-  let number = 6;
-  if (isTablet) number = 4;
-  if (isMobile) number = 3;
+  let number = isTablet ? 4 : isMobile ? 3 : 6;
 
   const [visibleData, setVisibleData] = useState(number);
 
@@ -33,7 +31,7 @@ const Posts = () => {
 
   useEffect(() => {
     toggleUnVisible();
-  }, [searchParams]);
+  }, [tagQuery]);
 
   const isAllVisible = visibleData >= lengthStore;
 
@@ -56,5 +54,3 @@ const Posts = () => {
     </section>
   );
 };
-
-export default Posts;

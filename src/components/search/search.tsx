@@ -1,9 +1,10 @@
-import styles from "./search-header.module.scss";
-import ContactWithUs from "../contact-with-us/contact-with-us";
-import Filter from "../../filter/filter";
 import React, { useState } from "react";
 
-const SearchHeader = () => {
+import { ContactWithUs, Filter } from "components/index";
+
+import styles from "./search-header.module.scss";
+
+export const Search = () => {
   const isMiniTablet = window.matchMedia("(min-width: 999px)").matches;
   const isMobile = window.matchMedia("(max-width: 767px)").matches;
 
@@ -33,5 +34,3 @@ const SearchHeader = () => {
     </section>
   );
 };
-
-export default SearchHeader;

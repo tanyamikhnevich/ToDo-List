@@ -1,6 +1,6 @@
 import styles from "./contact-with-us.module.scss";
 
-const ContactWithUs = () => {
+export const ContactWithUs = () => {
   return (
     <section className={styles.containerContact}>
       <p className={styles.text}>
@@ -11,5 +11,3 @@ const ContactWithUs = () => {
     </section>
   );
 };
-
-export default ContactWithUs;

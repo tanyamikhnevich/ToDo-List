@@ -1,9 +1,11 @@
-import styles from "./filter.module.scss";
 import React, { useState } from "react";
 import classNames from "classnames";
+import { useSearchParams } from "react-router-dom";
+
 import Tag from "./tag/tag";
 import { store as storeMeow } from "../../store/data";
-import { NavLink, useSearchParams } from "react-router-dom";
+
+import styles from "./filter.module.scss";
 
 const store = storeMeow;
 
@@ -43,19 +45,22 @@ const Filter = () => {
   return (
     <section className={styles.container}>
       {store1.slice(0, visible).map((tag) => (
-        <Tag key={tag} tag={tag} tagQuery={tagQuery} />
+        <Tag key={tag} tag={tag} isActive={tagQuery === tag} />
       ))}
+      {/*{store1.slice(0, visible).map((tag) => {*/}
+      {/*  const isActive =  tagQuery === tag*/}
+      {/*  return <Tag key={tag} tag={tag} isActive={isActive} />;*/}
+      {/*})}*/}
       {isDesktop && (
-        <NavLink
+        <button
           className={classNames(styles.buttonEnd, styles.buttonGeneral)}
-          to={`/?tag=${nameButtonEnd}`}
           onClick={isOpened ? toggleUnVisible : toggleVisible}
         >
           {nameButtonEnd}
-        </NavLink>
+        </button>
       )}
     </section>
   );
 };
 
-export default Filter;
+export { Filter };

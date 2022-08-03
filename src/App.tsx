@@ -1,9 +1,8 @@
 import React from "react";
 import styles from "./App.module.css";
-import SearchHeader from "./components/search-header/search-header/search-header";
-import ContactWithUs from "./components/search-header/contact-with-us/contact-with-us";
-import Posts from "./components/posts/posts";
-import Filter from "./components/filter/filter";
+import { Posts, Filter, Search, ContactWithUs } from "components";
+
+// исправить чтобы карточки друг за другом
 
 function App() {
   const isTablet = window.matchMedia("(max-width: 1279px)").matches;
@@ -12,7 +11,7 @@ function App() {
   return (
     <div className={styles.background}>
       <div className={styles.container}>
-        <SearchHeader />
+        <Search />
         {!isTablet && <Filter />}
         {isMiniTablet && <ContactWithUs />}
         <Posts />
@@ -20,5 +19,11 @@ function App() {
     </div>
   );
 }
+
+// add => commit => pull
+// => если есть conflicts (решаешь конфиликты => git add => commit (resolve conflicts))
+// git push
+
+// add => git stash => pull => git stash pop => решаешь конфликты если есть => делать свои дела
 
 export default App;
