@@ -1,4 +1,4 @@
-import styles from "./container-of-items.module.css";
+import styles from "./posts.module.scss";
 import React, { useEffect, useState } from "react";
 import Post from "./post/post";
 import { store as storeMeow } from "../../store/data";
@@ -6,7 +6,7 @@ import { useSearchParams } from "react-router-dom";
 
 const store = storeMeow;
 
-const ContainerOfItems = () => {
+const Posts = () => {
   const [searchParams] = useSearchParams();
   const tagQuery = searchParams.get("tag") || "";
 
@@ -18,11 +18,6 @@ const ContainerOfItems = () => {
   if (isMobile) number = 3;
 
   const [visibleData, setVisibleData] = useState(number);
-
-  // let postElements = store
-  //   .filter((el) => (tagQuery === "" ? true : el.tag === tagQuery))
-  //   .slice(visibleData - number, visibleData)
-  //   .map((p) => <Post key={p.id} info={p.info} image={p.image} />);
 
   let lengthStore = store.filter((el) =>
     tagQuery === "" ? true : el.tag === tagQuery
@@ -48,8 +43,8 @@ const ContainerOfItems = () => {
         {store
           .filter((el) => (tagQuery === "" ? true : el.tag === tagQuery))
           .slice(visibleData - number, visibleData)
-          .map((p) => (
-            <Post key={p.id} info={p.info} image={p.image} tag={p.tag} />
+          .map((post) => (
+            <Post key={post.id} {...post} />
           ))}
       </div>
       <button
@@ -62,4 +57,4 @@ const ContainerOfItems = () => {
   );
 };
 
-export default ContainerOfItems;
+export default Posts;

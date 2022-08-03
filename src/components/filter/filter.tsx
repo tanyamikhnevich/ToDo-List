@@ -1,12 +1,16 @@
-import styles from "./choise-items-area.module.css";
+import styles from "./filter.module.scss";
 import React, { useState } from "react";
 import classNames from "classnames";
-import Item from "./item/Item";
+import Tag from "./tag/tag";
 import { store as storeMeow } from "../../store/data";
+import { NavLink, useSearchParams } from "react-router-dom";
 
 const store = storeMeow;
 
-const ChoiceItemsArea = () => {
+const Filter = () => {
+  const [searchParams] = useSearchParams();
+  const tagQuery = searchParams.get("tag") || "";
+
   const isDesktop = !window.matchMedia("(max-width: 999px)").matches;
 
   const number = isDesktop ? 6 : store.length;
@@ -25,10 +29,6 @@ const ChoiceItemsArea = () => {
 
   const store1 = removeDuplicates();
 
-  // let itemElements = store1
-  //   .slice(0, visible)
-  //   .map((tag) => <Item key={tag} tag={tag} />);
-
   const toggleVisible = () => {
     setVisible(store1.length);
   };
@@ -38,45 +38,24 @@ const ChoiceItemsArea = () => {
   };
 
   const isOpened = visible === store1.length;
+  const nameButtonEnd = isOpened ? "Скрыть" : "Ещe"; //need this condition in link?
 
   return (
     <section className={styles.container}>
       {store1.slice(0, visible).map((tag) => (
-        <Item key={tag} tag={tag} />
+        <Tag key={tag} tag={tag} tagQuery={tagQuery} />
       ))}
       {isDesktop && (
-        <button
-          onClick={isOpened ? toggleUnVisible : toggleVisible}
+        <NavLink
           className={classNames(styles.buttonEnd, styles.buttonGeneral)}
+          to={`/?tag=${nameButtonEnd}`}
+          onClick={isOpened ? toggleUnVisible : toggleVisible}
         >
-          {isOpened ? "Скрыть" : "Ещe"}
-        </button>
+          {nameButtonEnd}
+        </NavLink>
       )}
     </section>
   );
 };
 
-export default ChoiceItemsArea;
-
-// return (
-//   <section className={styles.container}>
-//     {itemElements}
-//     {isMiniTablet ? (
-//       <></>
-//     ) : condition ? (
-//       <button
-//         onClick={toggleVisible}
-//         className={classNames(styles.buttonEnd, styles.buttonGeneral)}
-//       >
-//         Ещe
-//       </button>
-//     ) : (
-//       <button
-//         onClick={toggleUnVisible}
-//         className={classNames(styles.buttonEnd, styles.buttonGeneral)}
-//       >
-//         Скрыть
-//       </button>
-//     )}
-//   </section>
-// );
+export default Filter;

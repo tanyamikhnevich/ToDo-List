@@ -1,0 +1,28 @@
+.backgroundContainer {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+}
+
+.container {
+    display: flex;
+    justify-content: space-between;
+    flex-flow: wrap;
+    flex-direction: row;
+    align-items: stretch;
+}
+
+.endButton {
+    background: #AABBFF;
+    border-radius: 32px;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 28px;
+    text-align: center;
+    color: #7E51FF;
+    padding: 10px 0;
+    border: none;
+    cursor: pointer;
+    width: 25%;
+    margin: 0 auto;
+}

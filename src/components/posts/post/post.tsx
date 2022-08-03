@@ -1,17 +1,12 @@
 import React from "react";
-import styles from "../container-of-items.module.css";
+import styles from "./post.module.scss";
+import {ArrType} from "../../../store/data";
 
-type PropsType = {
-  info: string;
-  image: string;
-  tag: string;
-};
 
-const Post: React.FC<PropsType> = (props) => {
+const Post = (props: ArrType) => {
   return (
     <div className={styles.itemsContainer}>
       <img src={props.image} className={styles.image} alt="certificate" />
-      <p>{props.tag}</p>
       <div className={styles.description}>{props.info}</div>
     </div>
   );

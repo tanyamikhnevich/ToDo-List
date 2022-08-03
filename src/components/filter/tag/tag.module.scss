@@ -1,0 +1,42 @@
+.buttonGeneral {
+  font-size: 16px;
+  line-height: 18px;
+  border: 2px solid #7E51FF;
+  border-radius: 20px;
+  padding: 12px 24px 13px 24px;
+  margin-right: 13px;
+  margin-bottom: 13px;
+  cursor: pointer;
+}
+
+.button {
+  background-color: transparent;
+  text-decoration: none;
+  color: #7E51FF;
+  font-size: 16px;
+  line-height: 18px;
+}
+
+.buttonActive {
+  background: #7E51FF;
+  color: white;
+}
+
+@media screen and (max-width: 1279px) {
+  .buttonGeneral {
+    font-size: 14px;
+    line-height: 16px;
+    border: 1px solid #FFFFFF;
+    padding: 5px 12px;
+    margin: 5px;
+  }
+
+  .button {
+    color: #FFFFFF;
+  }
+
+  .buttonActive {
+    background: white;
+    color: black;
+  }
+}

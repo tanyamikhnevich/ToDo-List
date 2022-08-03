@@ -1,0 +1,81 @@
+.containerContact {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 70%;
+}
+
+.text {
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 28px;
+  color: #FFFFFF;
+  width: 57%;
+  text-align: left;
+  margin: 0;
+}
+
+.buttonContactWithUs {
+  background: #FFAB00;
+  box-shadow: 5px 4px 0 #162329;
+  border-radius: 13px;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 143.8%;
+  text-align: center;
+  color: #242028;
+  padding: 8px 50px;
+  width: 40%;
+  border: none;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 1279px) {
+  .containerContact {
+    flex-direction: column;
+    width: 48%;
+  }
+
+  .text {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+
+  .buttonContactWithUs {
+    width: 70%;
+  }
+}
+
+
+@media screen and (max-width: 999px) {
+  .containerContact {
+    margin: 0 auto 48px auto;
+  }
+
+  .buttonContactWithUs {
+    width: 80%;
+    margin: 0 auto;
+  }
+
+  .text {
+    color: black;
+    width: 100%;
+    text-align: center;
+  }
+
+}
+
+@media screen and (max-width: 767px) {
+  .containerContact {
+    margin-bottom: 40px;
+    width: 80%;
+  }
+
+  .buttonContactWithUs {
+    width: 80%;
+  }
+
+  .text {
+    width: 100%;
+  }
+}

@@ -16,33 +16,14 @@
     margin-right: 13px;
     margin-bottom: 13px;
     cursor: pointer;
-}
-
-.button {
-    background-color: transparent;
-}
-
-.buttonActive {
-    background: #7E51FF;
+    text-decoration: none;
 }
 
 .buttonEnd {
     background: #7E51FF;
     color: white;
-}
-
-.navlink {
     text-decoration: none;
-    color: #7E51FF;
-    font-size: 16px;
-    line-height: 18px;
-
 }
-.navlinkActive{
-    color: white;
-}
-
-
 
 @media screen and (max-width: 1279px) {
     .container {
@@ -59,24 +40,11 @@
 
     }
 
-    .button {
-        color: #FFFFFF;
-    }
-
     .buttonEnd {
         background: #FFFFFF;
         color: black;
     }
 
-    .navlink {
-        color: white;
-    }
-    .buttonActive {
-        background: white;
-    }
-    .navlinkActive {
-        color: black;
-    }
 }
 
 @media screen and (max-width: 767px) {
