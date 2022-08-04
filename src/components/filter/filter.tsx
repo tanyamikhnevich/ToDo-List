@@ -1,19 +1,21 @@
 import React, { useState } from "react";
 import classNames from "classnames";
-import { useSearchParams } from "react-router-dom";
 
 import Tag from "./tag/tag";
 import { store as storeMeow } from "../../store/data";
+import {useTagQuery} from "../../helpers/use-tag-query";
+import {getMediaQuery} from "../../helpers/helpers";
 
 import styles from "./filter.module.scss";
+
+
 
 const store = storeMeow;
 
 const Filter = () => {
-  const [searchParams] = useSearchParams();
-  const tagQuery = searchParams.get("tag") || "";
+  const tagQuery = useTagQuery()
 
-  const isDesktop = !window.matchMedia("(max-width: 999px)").matches;
+  const isDesktop = !getMediaQuery(999)
 
   const number = isDesktop ? 6 : store.length;
 
@@ -40,7 +42,6 @@ const Filter = () => {
   };
 
   const isOpened = visible === store1.length;
-  const nameButtonEnd = isOpened ? "Скрыть" : "Ещe"; //need this condition in link?
 
   return (
     <section className={styles.container}>
@@ -56,7 +57,7 @@ const Filter = () => {
           className={classNames(styles.buttonEnd, styles.buttonGeneral)}
           onClick={isOpened ? toggleUnVisible : toggleVisible}
         >
-          {nameButtonEnd}
+          {isOpened ? "Скрыть" : "Ещe"}
         </button>
       )}
     </section>

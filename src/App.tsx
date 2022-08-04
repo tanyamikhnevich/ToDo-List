@@ -1,12 +1,12 @@
 import React from "react";
 import styles from "./App.module.css";
 import { Posts, Filter, Search, ContactWithUs } from "components";
+import {getMediaQuery} from "./helpers/helpers";
 
-// исправить чтобы карточки друг за другом
 
 function App() {
-  const isTablet = window.matchMedia("(max-width: 1279px)").matches;
-  const isMiniTablet = window.matchMedia("(max-width: 999px)").matches;
+  const isTablet = getMediaQuery(1279);
+  const isMiniTablet = getMediaQuery(999);
 
   return (
     <div className={styles.background}>

@@ -13,7 +13,9 @@ export const Posts = () => {
   const isTablet = getMediaQuery(1279);
   const isMobile = getMediaQuery(767);
 
-  let number = isTablet ? 4 : isMobile ? 3 : 6;
+  let number = 6;
+  if (isTablet) {number = 4}
+  if (isMobile) {number = 3}
 
   const [visibleData, setVisibleData] = useState(number);
 

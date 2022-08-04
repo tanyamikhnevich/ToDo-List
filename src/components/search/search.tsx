@@ -1,16 +1,16 @@
 import React, { useState } from "react";
 
 import { ContactWithUs, Filter } from "components/index";
+import {getMediaQuery} from "../../helpers/helpers";
 
 import styles from "./search-header.module.scss";
 
-export const Search = () => {
-  const isMiniTablet = window.matchMedia("(min-width: 999px)").matches;
-  const isMobile = window.matchMedia("(max-width: 767px)").matches;
 
-  const justTablet =
-    window.matchMedia("(max-width: 1279px)").matches &&
-    window.matchMedia("(min-width: 999px)").matches;
+export const Search = () => {
+  const isMiniTablet = !getMediaQuery(999);
+  const isMobile = getMediaQuery(767);
+
+  const justTablet = getMediaQuery(1279) && !getMediaQuery(999)
 
   const [isVisible, setIsVisible] = useState(false);
 

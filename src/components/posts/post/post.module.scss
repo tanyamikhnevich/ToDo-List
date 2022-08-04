@@ -11,8 +11,16 @@
   flex-direction: column;
   border-radius: 24px;
   margin-bottom: 24px;
+  margin-right: 23px;
 }
 
+.itemsContainer:nth-last-child(1) {
+  margin-right: 0;
+}
+
+.itemsContainer:nth-last-child(4) {
+  margin-right: 0;
+}
 .description {
   font-weight: 500;
   font-size: 20px;
@@ -28,16 +36,28 @@
   .itemsContainer {
     width: 48%;
   }
+  .itemsContainer:nth-last-child(1) {
+    margin-right: 0;
+  }
+  .itemsContainer:nth-last-child(3) {
+    margin-right: 0;
+  }
+  .itemsContainer:nth-last-child(4) {
+    margin-right: 23px;
+  }
 }
 
 @media screen and (max-width: 999px) {
   .itemsContainer {
-    width: 48%;
+    width: 47%;
   }
 }
 
 @media screen and (max-width: 767px) {
   .itemsContainer {
     width: 100%;
+  }
+  .itemsContainer:nth-last-child(2) {
+    margin-right: 0;
   }
 }
